@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import {MdDone, MdDelete} from 'react-icons/md'
 
 interface TodoItemProps {
-    id?: string;
+    id?: number;
     done: boolean;
     text: string;
 }
