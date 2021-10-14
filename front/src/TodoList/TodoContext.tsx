@@ -30,8 +30,8 @@ type State ={
 }
 type Action = 
     | {type: 'CREATE', todo: State}
-    | {type: 'TOGGLE', id: number}
-    | {type: 'REMOVE', id: number}
+    | {type: 'TOGGLE', id: number|undefined}
+    | {type: 'REMOVE', id: number|undefined}
 
 function todoReducer(state: State[], action: Action) {
     switch (action.type) {
