@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
+import { useTodoDispatch, useTodoNextId } from './TodoContext';
+
 
 const CircleButton = styled.button<{open:boolean}>`
      background: #38d9a9;
@@ -47,7 +49,7 @@ const InsertFormPositioner = styled.div`
     left: 0;
     position: absolute;
 `;
-const InsertForm = styled.div`
+const InsertForm = styled.form`
     background: #f8f9fa;
     padding-left: 32px;
     padding-top: 32px;
@@ -69,14 +71,39 @@ const Input = styled.input`
 `;
 const TodoCreate = () => {
     const [open, setOpen] = useState(false);
+    const [value, setValue] = useState('');
+
+    const dispatch = useTodoDispatch();
+    const nextId = useTodoNextId();
+
     const handleToggle = () => setOpen(!open);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        dispatch({
+            type: 'CREATE',
+            todo: {
+                id: nextId.current,
+                text: value,
+                done: false,
+            }
+        });
+        setValue('');
+        setOpen(false);
+        nextId.current += 1;
+    }
 
     return (
         <>
             {open && (
                 <InsertFormPositioner>
-                    <InsertForm>
-                        <Input placeholder="할 일을 입력 후, Enter를 누르세요" autoFocus/>
+                    <InsertForm onSubmit={(e)=>handleSubmit(e)}>
+                        <Input 
+                            autoFocus
+                            placeholder="할 일을 입력 후, Enter를 누르세요" 
+                            onChange={handleChange}
+                            value={value}
+                        />
                     </InsertForm>
                 </InsertFormPositioner>
                 
@@ -88,4 +115,4 @@ const TodoCreate = () => {
     );
 }
 
-export default TodoCreate;
+export default React.memo(TodoCreate);

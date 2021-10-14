@@ -31,8 +31,8 @@ const TodoHeadBlock = styled.div`
 `
 const TodoHead = () => {
     const todos = useTodoState();
-    const udoneTasks = todos.filter(todo => !todo.done);
-    
+    const udoneTasks = todos.filter(todo => todo.done);
+
     const today = new Date();
     const dateString = today.toLocaleDateString('ko-KR', {
         year: 'numeric',
