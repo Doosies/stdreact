@@ -42,7 +42,7 @@ const CheckCircle = styled.div<{done:boolean}>`
     justify-content: center;
     margin-right: 20px;
     cursor: pointer;
-    ${done => done && css`
+    ${({done}) => done && css`
         border: 1px solid #38d9a9;
         color: #38d9a9;
     `}
@@ -51,7 +51,7 @@ const Text = styled.div<{done:boolean}>`
     flex: 1;
     font-size: 21px;
     color: #495057;
-    ${ done => css`
+    ${({done}) => done && css`
         color: #ced4da;
     `}
 `;
