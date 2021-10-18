@@ -14,9 +14,9 @@ export const toggleTodo = (id: number) => ({
     id: id
 });
 
-const initialState: State[] = [];
+const initialState: TodoStateType[] = [];
 
-interface State {
+export interface TodoStateType {
     id: number;
     text: string;
     done?: boolean;
@@ -25,7 +25,7 @@ type Action =
     | ReturnType<typeof addTodo>
     | ReturnType<typeof toggleTodo>;
 
-export default function todos(state: State[] = initialState, action: Action) {
+export default function todos(state: TodoStateType[] = initialState, action: Action) {
     switch (action.type) {
         case ADD_TODO:
             return state.concat(action.todo);
