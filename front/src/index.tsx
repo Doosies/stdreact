@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './TodoList/App';
+// import App from './TodoList/App';
+import App from './Redux/ App'
 import reportWebVitals from './reportWebVitals';
-import './Redux/exercise'
+// import './Redux/exercise'
+import {createStore} from 'redux';
+import rootReducer from './Redux/modules';
+import { Provider } from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
+const store = createStore(rootReducer, composeWithDevTools());
 ReactDOM.render(
-  <React.StrictMode>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App/>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
