@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './TodoList/App';
-import App from './Redux/ App'
+// import App from './Redux/ App'
+import App from './HomePage/App';
 import reportWebVitals from './reportWebVitals';
 // import './Redux/exercise'
 import {createStore} from 'redux';
-import rootReducer from './Redux/modules';
+// import rootReducer from './Redux/modules';
+import rootReducer from './HomePage/modules'
 import { Provider } from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 

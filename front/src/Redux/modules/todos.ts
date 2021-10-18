@@ -25,7 +25,7 @@ type Action =
     | ReturnType<typeof addTodo>
     | ReturnType<typeof toggleTodo>;
 
-export default function todos(state: TodoStateType[] = initialState, action: Action) {
+export default function todos(state = initialState, action: Action) {
     switch (action.type) {
         case ADD_TODO:
             return state.concat(action.todo);
