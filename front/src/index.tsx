@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './TodoList/App';
 import reportWebVitals from './reportWebVitals';
+import './Redux/exercise'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
