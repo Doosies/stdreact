@@ -9,7 +9,6 @@ function TextList({text, id}: Input) {
 
     const handleClickList = () => {setIsCLick(!isClick)};
     const handleClickX = () => {dispatch(deleteText(id))};
-    // const handleClickO = () => dispatch(updateText(tex))
 
     return (
         <div style={{

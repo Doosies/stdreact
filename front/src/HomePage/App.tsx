@@ -14,8 +14,6 @@ function App() {
         dispatch(createText(text));
         setText('');
     }
-    const handleDelete = () => {};
-    const handleUpdate = () => {};
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value);
     // const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => set
