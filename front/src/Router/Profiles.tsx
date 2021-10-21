@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Link, Route} from 'react-router-dom';
 import Profile from './Profile';
+import WithRouterSample from './WithRouterSample';
 
 interface ProfilesProps {
     
@@ -23,6 +24,7 @@ const Profiles = () => {
             <Route 
                 path="/profiles/:username" component={Profile}
             />
+            <WithRouterSample/>
         </div>
     );
 }
