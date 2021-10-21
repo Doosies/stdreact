@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
+import Profile from './Profile';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
             </ul>
             <Route path="/" component={Home} exact/>
             <Route path="/about" component={About} />
+            <Route path="/profiles/:username" component={Profile} />
         </div>
     )
 }
